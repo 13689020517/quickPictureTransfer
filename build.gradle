@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+}
+
+group 'xiaobo'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //引入测试包
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    //引入springboot启动包
+    compile("org.springframework.boot:spring-boot-starter-web:1.5.10.RELEASE")
+    //引入jpa包
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:1.5.10.RELEASE")
+    //引入mysql连接包
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.17'
+    //引入模版引擎包
+    compile("org.thymeleaf:thymeleaf-spring4:3.0.9.RELEASE")
+    //引入springboot测试包
+    compile("org.springframework.boot:spring-boot-starter-test:1.5.10.RELEASE")
+}
+

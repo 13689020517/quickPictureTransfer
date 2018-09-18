@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>注册页面</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <br/>
+</head>
+
+<body>
+<div class="container" style="padding-top: 150px;">
+    <div class="col-md-6 col-md-offset-3">
+        <form action="/registe" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name1">用户名</label>
+                <input type="text" name="name" class="form-control" id="name1" placeholder="请输入姓名...">
+                <span id="name1_S"></span>
+            </div>
+            <div class="form-group">
+                <label for="age">年龄</label>
+                <input type="number" name="age" class="form-control" id="age" placeholder="请输入年龄...">
+            </div>
+            <div class="form-group">
+                <label for="password">密码</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="请输入密码...">
+            </div>
+            <div class="form-group">
+                <label>性别</label><br/>
+                <label>
+                    <input type="radio" name="sex" value="男">男
+                </label>
+                <label>
+                    <input type="radio" name="sex" value="女">女
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="file1">图片</label>
+                <input type="file" id="file1" name="uploadFile">
+            </div>
+
+            <div class="form-group">
+                <label>留言备注</label>
+                <textarea name="message" class="form-control"></textarea>
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-info" style="width: 100%;">免费注册</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+   $("#name1").blur(function () {
+       $.get("/checkUserName?username="+$("#name1").val(),function (data) {
+               $("#name1_S").text(data)
+       })
+   })
+</script>
+
+</body>
+
+</html>

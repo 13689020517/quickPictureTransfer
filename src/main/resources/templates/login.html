@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<link>
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>登录界面</title>
+<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css"></link>
+<link rel='stylesheet prefetch'
+      href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700,700italic,600'></link>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/icon?family=Material+Icons'></link>
+<link rel="stylesheet" href="css/style.css"></link>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+</head>
+<body>
+<div class="htmleaf-container">
+    <div class="cont_principal">
+        <header class="htmleaf-header">
+            <h1>用户登录 <h1 color="white" th:text="${msg}">The effect of the user login interface design</h1></h1>
+        </header>
+            <div class="cont_join  ">
+                <div class="cont_letras">
+                    <p>PLZ</p>
+                    <p>CLICK</p>
+                    <p>LOGIN</p>
+                </div>
+                <div class="cont_form_join">
+                    <h2>LOGIN</h2>
+
+                    <div>
+                        <font color="white">用户名:</font>
+                        <input type="text" class="input_text" id="name1"/>
+                        <span id="name1_S"></span>
+                    </div>
+
+                    <div>
+                        <font color="white">密　码:</font>
+                        <input type="password" class="input_text" id="password1"/>
+                    </div>
+
+                </div>
+
+                <div class="cont_join_form_finish">
+                    <h2>Wait..... <i class="material-icons">&#xE5CA;</i></h2>
+                </div>
+
+                <div class="cont_btn_join">
+                    <a href="#" onclick="join_1($('#name1').val(),$('#password1').val())">LOGIN</a>
+                </div>
+            </div>
+    </div>
+</div>
+
+<script src="js/index.js"></script>
+<script>
+    $("#name1").blur(function () {
+        $.get("/checkUserName?username=" + $("#name1").val(), function (data) {
+            $("#name1_S").text(data)
+        })
+    })
+</script>
+</body>
+</html>
